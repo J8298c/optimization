@@ -1,0 +1,7 @@
+Edits made to main.js
+Line 467 changed to 35 to lower the number of pizzas appended to document
+Line 503 changed number of pizzas to 30 200 was far too many pizzas to add and paint
+line 515 removed items from inside updatePosition so it only gets called once verus 
+everytime the user scrolls
+line 528 created var scrool inside updatePosition but outside for loop
+to lessen the amount of calculations being done inside for loop

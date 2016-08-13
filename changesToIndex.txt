@@ -1,0 +1,3 @@
+Compressed all images to smallest size possible
+inlined style.css added media print attribute to print.css
+added async attritbutes to scripts and moved to bottom of html page 
