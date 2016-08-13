@@ -445,6 +445,8 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    //pulled dx and newwidth out of for loop as numbers stay the same
+    //changed all querySelectorAll to getElementsByClassName for speed optimization
     var i = 0;
     var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[i], size);
     var newwidth = (document.getElementsByClassName("randomPizzaContainer")[i].offsetWidth + dx) + 'px';
@@ -465,7 +467,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 35; i++) {
+for (var i = 2; i < 100; i++) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -531,10 +533,8 @@ var scroll = document.body.scrollTop / 1250;
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < 5; i++) {
     phase.push(Math.sin((scroll) + i) * 100);
-    console.log(phase);
   }
   for (var i = 0, max = items.length; i < max; i++) {
-    //var phase = Math.sin((scroll) + (i % 5));
     items[i].style.left = items[i].basicLeft + phase[i%5] + 'px';
   }
   // User Timing API to the rescue again. Seriously, it's worth learning.

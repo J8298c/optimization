@@ -1,55 +1,27 @@
-## Website Performance Optimization portfolio project
+-------------------Mobile Portfilio Read Me -----------------
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+This web page is hosted at the following address https://j8298c.github.io/optimization
+to run simply click on the link, or copy and paste in your browser of choice. There are several links on the home page just click and go.
 
-To get started, check out the repository and inspect the code.
+In Cam's Pizzeria there are several options to choose from theres a slider which you use to
+pick out what size pie you want Small Medium or Large.
 
-### Getting started
+I have made several optimizations to both the homepage and and the pizza webpage
+Index.html
+____________
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+1. Compressed all Images to bring down overall size of index.html
+2. minified and inlined style.css to index.html to prevent it from render blocking
+3. moved all JavaScript to bottom of index.html to also prevent it from render blocking the page
+4. Added async to all Script tags to load JS asynchronously
+5. Moved google fonts.css to bottom as well to prevent it from render blocking the page.
+6. Added media="print" attribute to print.css to it is only loaded by browser when user needs to      prints.
 
-Some useful tips to help you get started:
+Pizza.html
+___________
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
-
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
-
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
-
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
-
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-####Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+1. Line 447 function changePizzaSizes pulled var dx and newwidth out of for loop as the numbers stay the same there was no need to keep recalculating them while the loop ran.
+2. line 505 changed number of pizzas from 200 to 35 since 200 was far too many pizzas to create for the page.
+3. line 527 function updatePositions added var scroll as placeholder for scrollTop/1250 calculation
+4. line 532 created phase array and used for loop on 534 to push values into phase[]
+5. line 533 pulled var items out of loop n 537 so that it wouldnt be called every time user scrolled and triggered for loop.
